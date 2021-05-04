@@ -1,0 +1,230 @@
+/* INIZIO HAMBURGER MENU */
+    label .menu {
+        position: absolute;
+        left: -100px;
+        top: -100px;
+        z-index: 100;
+        width: 200px;
+        height: 200px;
+        background: #98CFBC;
+        border-radius: 50% 50% 50% 50%;
+        transition: 0.5s ease-in-out;
+        box-shadow: 0 0 0 0 #98CFBC, 0 0 0 0 #98CFBC;
+        cursor: pointer;
+    }
+    label .hamburger {
+        position: absolute;
+        top: 135px;
+        right: 50px;
+        width: 30px;
+        height: 2px;
+        background: white;
+        display: block;
+        transform-origin: center;
+        transition: 0.5s ease-in-out;
+    }
+    label .hamburger:after, label .hamburger:before {
+        transition: 0.5s ease-in-out;
+        content: "";
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: white;
+    }
+    label .hamburger:before {
+        top: -10px;
+    }
+    label .hamburger:after {
+        bottom: -10px;
+    }
+    label input {
+        display: none;
+    }
+    label input:checked + .menu {
+        box-shadow: 0 0 0 350px #98CFBC, 0 0 0 350px #98CFBC;
+        border-radius: 1;
+    }
+    label input:checked + .menu .hamburger {
+        transform: rotate(45deg);
+    }
+    label input:checked + .menu .hamburger:after {
+        transform: rotate(90deg);
+        bottom: 0;
+    }
+    label input:checked + .menu .hamburger:before {
+        transform: rotate(90deg);
+        top: 0;
+    }
+    label input:checked + .menu + ul {
+        opacity: 1;
+    }
+    label ul {
+        z-index: 150;
+        position: absolute;
+        font-weight: 700;
+        line-height: 34px;
+        top: 30%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: 0.25s 0s ease-in-out;
+    }
+      label li::marker{
+          visibility: hidden;
+      }
+    label a {
+        margin-bottom: 1em;
+        display: block;
+        color: white;
+        text-decoration: none;
+    }
+      
+    /* FINE HAMBURGER MENU */
+      
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        text-align: center;
+    }
+    
+    .nav-padding-top {
+      padding-bottom: 100px;
+    }
+      
+    .bg {
+      font-family: 'Quicksand';
+      background-image: url("../../images/background.png");
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 100%;
+      overflow: auto;
+    }
+
+    .logo {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding-top: 10px;
+    }
+
+    .logo img {
+      min-width:80%;
+      max-width:80%;
+      height:auto;
+      margin-right: -30%;
+    }
+      
+    @media screen and (max-width: 900px) {
+    .logo {
+        display: none;
+      }
+    }
+    
+    .my-row {
+      display: flex;
+    }
+
+    .column_1 {
+      flex: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .column_1 img {
+      width: 250px;
+      height: auto;
+      padding-top: 20px;
+    }
+
+    .column_1 p {
+        margin: 2% 20% 2%;
+    }
+   
+    .column_2 {
+      flex: 50%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .column_2 img {
+      width: 200px;
+      height: auto;
+      padding-top: 20px;
+    }
+
+    .column_3 {
+      flex: 33.3%;
+      text-align: center;
+      font-size: 25px;
+    }
+
+    .column_3 img {
+      width: 150px;
+      height: auto;
+      padding-top: 20px;
+    }
+
+    .column_5 {
+      flex: 20%;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .column_5 img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .dots img {
+      width: 100px;
+      height: auto;
+      padding-top: 90px;
+    }
+
+    .title {
+      font-weight: 900;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-areas:
+      'other main main main other';
+      grid-gap: 10px;
+      padding: 10px;
+    }
+      
+    /* Distancer to separate, add as many as you like */
+    .distancer{
+      margin-bottom: 50px;
+    }
+      
+    /* Footer */
+    .footer {
+      width: 100%;
+      position: relative;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .button-learn-more {
+      background-color: #E5E5E5;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 25px 10px 25px;
+      background-color: #98CFBC;
+    }
