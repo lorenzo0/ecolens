@@ -1,0 +1,367 @@
+<html lang="en-US">
+   <style>
+      @import url("https://fonts.googleapis.com/css?family=Cutive+Mono");
+      *,
+      *:before,
+      *:after {
+       box-sizing: border-box;
+      }
+
+      html {
+       font-size: 18px;
+      }
+
+      body {
+       font-family: "Cutive Mono", serif;
+       font-size: 1.2em;
+       line-height: 1.6;
+       overflow-x: hidden;
+      }
+
+      label .menu {
+       position: absolute;
+       left: -100px;
+       /*right: 0px;*/
+       top: -100px;
+       z-index: 100;
+       width: 200px;
+       height: 200px;
+       background: #98CFBC;
+       border-radius: 50% 50% 50% 50%;
+       transition: 0.5s ease-in-out;
+       box-shadow: 0 0 0 0 #98CFBC, 0 0 0 0 #98CFBC;
+       cursor: pointer;
+      }
+      label .hamburger {
+       position: absolute;
+       top: 135px;
+       right: 50px;
+       width: 30px;
+       height: 2px;
+       background: #000;
+       display: block;
+       transform-origin: center;
+       transition: 0.5s ease-in-out;
+      }
+      label .hamburger:after, label .hamburger:before {
+       transition: 0.5s ease-in-out;
+       content: "";
+       position: absolute;
+       display: block;
+       width: 100%;
+       height: 100%;
+       background: #000;
+      }
+      label .hamburger:before {
+       top: -10px;
+      }
+      label .hamburger:after {
+       bottom: -10px;
+      }
+      label input {
+       display: none;
+      }
+      label input:checked + .menu {
+       box-shadow: 0 0 0 300px #98CFBC, 0 0 0 300px #98CFBC;
+       border-radius: 1;
+      }
+      label input:checked + .menu .hamburger {
+       transform: rotate(45deg);
+      }
+      label input:checked + .menu .hamburger:after {
+       transform: rotate(90deg);
+       bottom: 0;
+      }
+      label input:checked + .menu .hamburger:before {
+       transform: rotate(90deg);
+       top: 0;
+      }
+      label input:checked + .menu + ul {
+       opacity: 1;
+      }
+      label ul {
+       z-index: 150;
+       position: absolute;
+       font-family: inherit;
+       font-weight: 700;
+       line-height: 34px;
+       top: 30%;
+       left: 10%;
+       transform: translate(-50%, -50%);
+       opacity: 0;
+       transition: 0.25s 0s ease-in-out;
+      }
+      label a {
+       margin-bottom: 1em;
+       display: block;
+       color: #000;
+       text-decoration: none;
+      }
+
+      h1 {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       width: 80%;
+       text-align: center;
+      }
+   </style>
+
+   <head>
+      <meta charset="UTF-8">
+      <link rel="profile" href="https://gmpg.org/xfn/11">
+      <title>Ecolens – A lens for the sustainability</title>
+      <meta name="robots" content="max-image-preview:large">
+      <link rel="dns-prefetch" href="//s.w.org">
+      <!--<link rel="alternate" type="application/rss+xml" title="Ecolens » Feed" href="https://ecolens.net/feed/">
+      <link rel="alternate" type="application/rss+xml" title="Ecolens » Comments Feed" href="https://ecolens.net/comments/feed/">-->
+      <script type="text/javascript">
+         var xml = new XMLHttpRequest();
+         xml.onreadystatechange = function() {
+            if(xml.readyState==4 && xml.status==200) {
+               console.log(xml.responseText);
+            }
+         };
+         xml.open("POST", "requireRestaurants.php", true);
+         xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         xml.send("id=" + 1); //"id=" + id + "&id2=" + id2
+      </script>
+      <style>
+         img.wp-smiley,
+         img.emoji {
+         display: inline !important;
+         border: none !important;
+         box-shadow: none !important;
+         height: 1em !important;
+         width: 1em !important;
+         margin: 0 .07em !important;
+         vertical-align: -0.1em !important;
+         background: none !important;
+         padding: 0 !important;
+         }
+      </style>
+      
+      <!--<link rel="stylesheet" id="generate-style-css" href="https://ecolens.net/wp-content/themes/generatepress/assets/css/main.min.css?ver=3.0.3" media="all">
+      <link rel="stylesheet" id="elementor-frontend-css" href="https://ecolens.net/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.2.2" media="all">
+      <link rel="stylesheet" id="elementor-post-5-css" href="https://ecolens.net/wp-content/uploads/elementor/css/post-5.css?ver=1619689399" media="all">
+      <link rel="stylesheet" id="elementor-global-css" href="https://ecolens.net/wp-content/uploads/elementor/css/global.css?ver=1619689399" media="all">
+      <link rel="stylesheet" id="elementor-post-36-css" href="https://ecolens.net/wp-content/uploads/elementor/css/post-36.css?ver=1619689399" media="all">
+      <link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CQuicksand%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=5.7.1" media="all">
+      
+      <meta charset="UTF-8">
+      <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+      <meta name="apple-mobile-web-app-title" content="CodePen">
+      <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+      <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
+      <title>CodePen - Open menu effect | Pure CSS</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <script>
+         window.console = window.console || function(t) {};
+      </script>
+      <script>
+         if (document.location.search.match(/type=embed/gi)) {
+           window.parent.postMessage("resize", "*");
+         }
+      </script>-->
+
+      <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+      <style type="text/css">
+         .body {
+            font-family: 'Quicksand';
+            font-weight: 800;
+         }
+      </style>
+   </head>
+   <body class="home page-template page-template-elementor_theme page page-id-36 logged-in admin-bar wp-custom-logo wp-embed-responsive no-sidebar nav-float-left separate-containers header-aligned-center dropdown-hover elementor-default elementor-kit-5 elementor-page elementor-page-36 customize-support e--ua-blink e--ua-chrome e--ua-webkit using-mouse" itemtype="https://schema.org/WebPage" itemscope="" data-elementor-device-mode="desktop" cz-shortcut-listen="true">
+      <label>
+         <input type="checkbox">
+         <span class="menu">
+         <span class="hamburger"></span>
+         </span>
+         <ul>
+            <li>
+               <a href="#">Home</a>
+            </li>
+            <li>
+               <a href="#">About</a>
+            </li>
+            <li>
+               <a href="#">Work</a>
+            </li>
+         </ul>
+      </label>
+
+      <a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>		
+      <div id="page" class="site grid-container container hfeed">
+         <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+               <main id="main" class="site-main">
+                  <article id="post-36" class="post-36 page type-page status-publish" itemtype="https://schema.org/CreativeWork" itemscope="">
+                     <div class="inside-article">
+                        <header class="entry-header">
+                           <h1 class="entry-title" itemprop="headline">Home</h1>
+                        </header>
+                        <div class="entry-content" itemprop="text">
+                           <div data-elementor-type="wp-page" data-elementor-id="36" class="elementor elementor-36" data-elementor-settings="[]">
+                              <div class="elementor-section-wrap">
+                                 <section class="elementor-section elementor-top-section elementor-element elementor-element-c0fc666 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c0fc666" data-element_type="section">
+                                    <div class="elementor-container elementor-column-gap-default">
+                                       <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-dbb636c" data-id="dbb636c" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-f800260 elementor-widget elementor-widget-heading" data-id="f800260" data-element_type="widget" data-widget_type="heading.default">
+                                                <div class="elementor-widget-container">
+                                                   <h3 class="elementor-heading-title elementor-size-default">Our project</h3>
+                                                </div>
+                                             </div>
+                                             <div class="elementor-element elementor-element-085d573 elementor-widget elementor-widget-text-editor" data-id="085d573" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-widget-container">
+                                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-19b7e20" data-id="19b7e20" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-9a92172 elementor-widget elementor-widget-heading" data-id="9a92172" data-element_type="widget" data-widget_type="heading.default">
+                                                <div class="elementor-widget-container">
+                                                   <h3 class="elementor-heading-title elementor-size-default">What is EcoLens?</h3>
+                                                </div>
+                                             </div>
+                                             <div class="elementor-element elementor-element-63879d3 elementor-widget elementor-widget-text-editor" data-id="63879d3" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-widget-container">
+                                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </section>
+                                 <section class="elementor-section elementor-top-section elementor-element elementor-element-f335793 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f335793" data-element_type="section">
+                                    <div class="elementor-container elementor-column-gap-default">
+                                       <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-c468caa" data-id="c468caa" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-3137d93 elementor-widget elementor-widget-spacer" data-id="3137d93" data-element_type="widget" data-widget_type="spacer.default">
+                                                <div class="elementor-widget-container">
+                                                   <div class="elementor-spacer">
+                                                      <div class="elementor-spacer-inner"></div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                             <div class="elementor-element elementor-element-697950b elementor-widget elementor-widget-heading" data-id="697950b" data-element_type="widget" data-widget_type="heading.default">
+                                                <div class="elementor-widget-container">
+                                                   <h3 class="elementor-heading-title elementor-size-default">How does it work?</h3>
+                                                </div>
+                                             </div>
+                                             <div class="elementor-element elementor-element-cf6f136 elementor-widget elementor-widget-spacer" data-id="cf6f136" data-element_type="widget" data-widget_type="spacer.default">
+                                                <div class="elementor-widget-container">
+                                                   <div class="elementor-spacer">
+                                                      <div class="elementor-spacer-inner"></div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </section>
+                                 <section class="elementor-section elementor-top-section elementor-element elementor-element-fefa6cf elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="fefa6cf" data-element_type="section">
+                                    <div class="elementor-container elementor-column-gap-default">
+                                       <div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-104c25e" data-id="104c25e" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-fef33f9 elementor-widget elementor-widget-image" data-id="fef33f9" data-element_type="widget" data-widget_type="image.default">
+                                                <div class="elementor-widget-container">
+                                                   <img width="150" height="150" src="https://ecolens.net/wp-content/uploads/2021/04/Tavola-disegno-1-copia-21-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy">	
+                                                </div>
+                                             </div>
+                                             <div class="elementor-element elementor-element-e478bd4 elementor-widget elementor-widget-text-editor" data-id="e478bd4" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-widget-container">
+                                                   <p>
+                                                   </p>
+                                                      
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-ee9e280" data-id="ee9e280" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-a75938a elementor-absolute elementor-widget elementor-widget-image" data-id="a75938a" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+                                                <div class="elementor-widget-container">
+                                                   <img width="130" height="14" src="https://ecolens.net/wp-content/uploads/2021/04/Group-6.png" class="attachment-large size-large" alt="" loading="lazy">															
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-665ebd3" data-id="665ebd3" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-024f940 elementor-widget elementor-widget-image" data-id="024f940" data-element_type="widget" data-widget_type="image.default">
+                                                <div class="elementor-widget-container">
+                                                   <img width="150" height="150" src="https://ecolens.net/wp-content/uploads/2021/04/Tavola-disegno-1-copia-22-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy">															
+                                                </div>
+                                             </div>
+                                             <div class="elementor-element elementor-element-e371db4 elementor-widget elementor-widget-text-editor" data-id="e371db4" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-widget-container">
+                                                   <p>
+                                                      
+                                                   </p>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-0e3d4d0" data-id="0e3d4d0" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-a79f8df elementor-absolute elementor-widget elementor-widget-image" data-id="a79f8df" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+                                                <div class="elementor-widget-container">
+                                                   <img width="130" height="14" src="https://ecolens.net/wp-content/uploads/2021/04/Group-6.png" class="attachment-large size-large" alt="" loading="lazy">															
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                       <div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-8c547dc" data-id="8c547dc" data-element_type="column">
+                                          <div class="elementor-widget-wrap elementor-element-populated">
+                                             <div class="elementor-element elementor-element-7cf384b elementor-widget elementor-widget-image" data-id="7cf384b" data-element_type="widget" data-widget_type="image.default">
+                                                <div class="elementor-widget-container">
+                                                   <img width="150" height="150" src="https://ecolens.net/wp-content/uploads/2021/04/Tavola-disegno-1-copia-20-150x150.png" class="attachment-thumbnail size-thumbnail" alt="" loading="lazy">															
+                                                </div>
+                                             </div>
+                                             <div class="elementor-element elementor-element-0d447c9 elementor-widget elementor-widget-text-editor" data-id="0d447c9" data-element_type="widget" data-widget_type="text-editor.default">
+                                                <div class="elementor-widget-container">
+                                                   <p>
+                                                      
+                                                   </p>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </section>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </article>
+               </main>
+            </div>
+         </div>
+      </div>
+
+      <script type="text/javascript">
+         document.addEventListener("DOMContentLoaded", function() {
+           document.getElementById("a").innerHTML = "© 2021 Ecolens";
+         });
+      </script>
+
+      <style type="text/css">
+         
+      </style>
+
+      <div class="site-footer">
+         <footer class="site-info" itemtype="https://schema.org/WPFooter" itemscope="">
+            <div class="inside-site-info grid-container">
+               <div class="copyright-bar">
+                  <span id="a" class="copyright">sssss</span>			
+               </div>
+            </div>
+         </footer>
+      </div>
+   </body>
+</html>
