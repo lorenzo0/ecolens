@@ -202,12 +202,6 @@
       text-align: center;
     }
 
-    .column_6 img {
-      width: 70%;
-      height: 90%;
-      object-fit: cover;
-    }
-
     .dots img {
       width: 100px;
       height: auto;
@@ -238,7 +232,19 @@
     .distancer{
       margin-bottom: 150px;
     }
+
+    /* Avatar meet the team webpage */
+    .avatar{
+      border-radius: 50%;
+      height: 250px;
+      width: auto;
+    }
       
+    .graph{
+        height: 400px;
+        width: auto;
+    }
+
     /* Footer */
     .footer {
       width: 100%;
